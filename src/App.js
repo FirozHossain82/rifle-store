@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import AllRifle from './Components/AllRifle/AllRifle';
+import Counter from './Components/Counter/Counter';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
+  const [count, setCount] = useState(0);
+  const countIncrease=()=>{
+    setCount(count+1);
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar count={count}></Navbar>
+      <AllRifle countIncrease={countIncrease} ></AllRifle>
     </div>
   );
 }
